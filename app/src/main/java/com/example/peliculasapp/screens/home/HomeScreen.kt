@@ -28,10 +28,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.compose.rememberNavController
 
 @Preview(showBackground = true)
 @Composable
 fun HomeScreen() {
+    val navController = rememberNavController()
+
 
 
     val movieList: List<String> = listOf(
@@ -54,7 +57,7 @@ fun HomeScreen() {
                 items(items = movieList) {
                     MovieRow(movie = it) { movie ->
                         Log.d("MOVIES", "$movie")
-                        //navController.navigate(route = MovieScreens.DetailsScreen.name + "/$movie")
+                        navController.navigate(route = MovieScreens.DetailsScreen.name + "/$movie")
                     }
                 }
             }
